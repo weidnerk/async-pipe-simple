@@ -1,5 +1,9 @@
 # AsyncPipeSimple
 
+Simple demo of the async pipe taken from the video:  
+Taken from https://egghead.io/lessons/angular-2-render-an-observable-with-the-async-pipe  
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
 
 ## Development server
