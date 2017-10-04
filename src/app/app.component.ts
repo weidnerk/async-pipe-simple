@@ -12,18 +12,38 @@ import 'rxjs/add/operator/map';
 })
 export class AppComponent {
 
-  clock$;
-  // we make clock of type Observable but the template won't be updated with
-  //clock = Observable.interval(1000);
+  /*
+    Demonstrate 2 different ways to update 'clock' asynchronously
+ */
 
-  // constructor() {
-  //   this.clock.subscribe(console.log.bind(console));
-  // }
+  /*
+   * Technique 1
+   */
+
+  /*
+    // Must add async pipe in template:
+    //    '{{ clock | async }}'
+    // make sure variable in template just says 'clock'
+    clock = Observable.interval(1000);
+  
+    constructor() {
+       this.clock.subscribe(console.log.bind(console));
+    }
+    */
+
+  /*
+   * Technique 2
+   */
+    // No need for async pipe
+    // Make sure variable in template says 'clock$'
+    clock$;
+
   constructor() {
     Observable.interval(1000)
-    .map((x) => x+1)
-    .subscribe((x) => {
-      this.clock$ = x;
-    });
+      .map((x) => x + 1)
+      .subscribe((x) => {
+        this.clock$ = x;
+      });
   }
+
 }
